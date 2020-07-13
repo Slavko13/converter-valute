@@ -27,7 +27,8 @@
         <module>valute-converter-api</module>
         <module>oauth-db</module>
         <module>converter-core</module>
-
+        <module>valute-api/valute-api-client</module>
+        <module>valute-api/valute-api-server</module>
     </modules>
 
     <dependencies>
@@ -49,6 +50,12 @@
 
             <dependency>
                 <groupId>ru.converter</groupId>
+                <artifactId>valute-api-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.converter</groupId>
                 <artifactId>database</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
@@ -57,7 +64,11 @@
                 <artifactId>base</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
-
+            <dependency>
+                <groupId>ru.converter</groupId>
+                <artifactId>rabbit-mq</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
         </dependencies>
 
 

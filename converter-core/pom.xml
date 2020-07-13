@@ -20,6 +20,7 @@
         <module>database</module>
         <module>base</module>
         <module>security</module>
+        <module>rabbit-mq</module>
     </modules>
 
     <dependencyManagement>

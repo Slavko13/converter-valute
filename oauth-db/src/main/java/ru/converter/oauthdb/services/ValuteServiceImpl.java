@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import ru.converter.oauthdb.domains.Valute;
 import ru.converter.oauthdb.repositories.ValuteRepo;
 
+import java.util.List;
+
 
 @Service
 public class ValuteServiceImpl implements ValuteService {
@@ -21,10 +23,22 @@ public class ValuteServiceImpl implements ValuteService {
 
 
     @Override
-    public Valute getValuteById() {
-        Valute valute = valuteRepo.findById((long) 1).orElse(null);
-        System.out.println(valute.getId());
-        return valute;
+    public Valute getValuteById(Long id) {
+        return valuteRepo.findById(id).orElse(null);
     }
 
+    @Override
+    public List<Valute> getAllValutes() {
+        return (List<Valute>) valuteRepo.findAll();
+    }
+
+    @Override
+    public Valute saveValute(Valute valute) {
+        return valuteRepo.save(valute);
+    }
+
+    @Override
+    public Valute deleteValute(Valute valute) {
+        return null;
+    }
 }
