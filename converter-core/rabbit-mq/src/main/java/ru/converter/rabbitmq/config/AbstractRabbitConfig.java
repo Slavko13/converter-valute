@@ -10,6 +10,7 @@ import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.ContentTypeDelegatingMessageConverter;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
@@ -34,21 +35,30 @@ public abstract class AbstractRabbitConfig {
         return connectionFactory;
     }
 
-    @Bean
-    public MessageConverter messageConverter(ObjectMapper objectMapper) {
-        return new Jackson2JsonMessageConverter(objectMapper);
-    }
+//
+//    @Bean
+//    public MessageConverter messageConverter() {
+//        ContentTypeDelegatingMessageConverter messageConverter = new ContentTypeDelegatingMessageConverter();
+//        messageConverter.addDelegate("application/json", new Jackson2JsonMessageConverter());
+//        return messageConverter;
+//    }
+
+
+//    @Bean
+//    public MessageConverter messageConverter(ObjectMapper objectMapper) {
+//        return new Jackson2JsonMessageConverter(objectMapper);
+//    }
 
 
     @Bean
-    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory,
-                                                                               MessageConverter messageConverter) {
+    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory
+                                                                               ) {
+
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
         factory.setMaxConcurrentConsumers(5);
-        factory.setMessageConverter(messageConverter);
+//        factory.setMessageConverter(messageConverter);
         factory.setDefaultRequeueRejected(false);
-
         return factory;
     }
 
@@ -58,10 +68,9 @@ public abstract class AbstractRabbitConfig {
     }
 
     @Bean
-    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory, MessageConverter messageConverter) {
+    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory) {
         RabbitTemplate rabbitTemplate = new RabbitTemplate();
         rabbitTemplate.setConnectionFactory(connectionFactory);
-        rabbitTemplate.setMessageConverter(messageConverter);
         return rabbitTemplate;
     }
 

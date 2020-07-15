@@ -4,6 +4,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Component;
 import ru.converter.oauthdb.domains.Valute;
+import ru.converter.valuteapiclient.dto.ValuteDTO;
 import ru.converter.valuteapiserver.services.ValuteInfoService;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class ValuteConsumer {
     }
 
     @RabbitListener(queues = "#{getInfoToConverter.name}")
-    public void send(Long i) throws MessagingException {
-        valuteInfoService.getValuteById(i);
+    public void send(ValuteDTO valuteDTO) throws MessagingException {
+        valuteInfoService.getValuteById(valuteDTO.getId());
     }
 
 

@@ -1,6 +1,6 @@
 /.idea/
 /tomcat*/
-/.gradle/
+/.mvn
 /*iml
 /*.cmd
 /*mvnw

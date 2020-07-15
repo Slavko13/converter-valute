@@ -2,12 +2,16 @@ package ru.converter.valuteapiclient.dto;
 
 
 import lombok.Data;
+import lombok.ToString;
 
+import java.io.Serializable;
+
+@ToString
 @Data
-public class ValuteDTO {
+public class ValuteDTO implements Serializable {
 
     private String name;
-    private Integer id;
+    private Long id;
 
 
 }

@@ -24,7 +24,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>valute-converter-api</module>
+        <module>converter-api/converter-api-client</module>
+        <module>converter-api/converter-api-server</module>
+        <module>history-api/history-api-client</module>
+        <module>history-api/history-api-server</module>
         <module>oauth-db</module>
         <module>converter-core</module>
         <module>valute-api/valute-api-client</module>

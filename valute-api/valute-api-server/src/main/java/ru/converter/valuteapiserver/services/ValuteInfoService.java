@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface ValuteInfoService  {
 
-    List <Valute> getValutes();
+
+
     void getValuteById(Long id);
 
 

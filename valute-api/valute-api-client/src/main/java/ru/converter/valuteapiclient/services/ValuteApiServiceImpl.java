@@ -4,6 +4,7 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import ru.converter.valuteapiclient.dto.ValuteDTO;
 
 
 @Service
@@ -22,7 +23,7 @@ public class ValuteApiServiceImpl implements ValuteApiService {
 
 
     @Override
-    public void getValuteById(Long id) {
-        amqpTemplate.convertAndSend(GET_INFO_TO_CONVERTER, "id" );
+    public void getValuteById(ValuteDTO valuteDTO) {
+        amqpTemplate.convertAndSend(GET_INFO_TO_CONVERTER, valuteDTO );
     }
 }
