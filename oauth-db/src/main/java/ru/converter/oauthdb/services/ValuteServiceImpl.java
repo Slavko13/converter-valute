@@ -23,7 +23,7 @@ public class ValuteServiceImpl implements ValuteService {
 
 
     @Override
-    public Valute getValuteById(Long id) {
+    public Valute getValuteById(Integer id) {
         return valuteRepo.findById(id).orElse(null);
     }
 

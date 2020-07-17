@@ -23,6 +23,11 @@ public class ValuteApiServiceImpl implements ValuteApiService {
 
 
     @Override
+    public void getValutesToConvert(ValuteDTO valuteDTO) {
+        amqpTemplate.convertAndSend(GET_INFO_TO_CONVERTER, valuteDTO );
+    }
+
+    @Override
     public void getValuteById(ValuteDTO valuteDTO) {
         amqpTemplate.convertAndSend(GET_INFO_TO_CONVERTER, valuteDTO );
     }

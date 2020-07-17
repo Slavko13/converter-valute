@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ValuteService {
 
-    Valute getValuteById(Long id);
+    Valute getValuteById(Integer id);
     List<Valute> getAllValutes();
     Valute saveValute(Valute valute);
     Valute deleteValute(Valute valute);

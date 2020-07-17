@@ -10,8 +10,8 @@ import java.io.Serializable;
 @Data
 public class ValuteDTO implements Serializable {
 
-    private String name;
-    private Long id;
-
+    private Integer valuteFromID;
+    private Integer valuteToID;
+    private Double fromValuteValue;
 
 }

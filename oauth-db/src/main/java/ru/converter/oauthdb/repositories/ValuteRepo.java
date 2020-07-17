@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import ru.converter.oauthdb.domains.Valute;
 
 
-public interface ValuteRepo extends CrudRepository<Valute, Long> {
+public interface ValuteRepo extends CrudRepository<Valute, Integer> {
 }

@@ -20,8 +20,7 @@ public class ValuteConsumer {
 
     @RabbitListener(queues = "#{getInfoToConverter.name}")
     public void send(ValuteDTO valuteDTO) throws MessagingException {
-        valuteInfoService.getValuteById(valuteDTO.getId());
+        valuteInfoService.getValutesFromConverter(valuteDTO);
     }
-
 
 }
