@@ -11,7 +11,7 @@
  
  <h3> Используемые технологии</h3>
  <li>
-    <b>Backend:</b>
+    <ul>Backend:</ul>
     <ul>Spring Framework (Core, MVC, JTA, Security, Data JPA)</ul>
     <ul>RabbitMQ</ul>
     <ul>Hibernate</ul>
