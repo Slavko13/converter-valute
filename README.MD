@@ -9,34 +9,42 @@
  </ul>
  
  
- <h3> Используемые технологии</h3>:
+ <h3> Используемые технологии</h3>
  <ul>
-    <b>Backend:</b>
-    <li>Spring Framework (Core, MVC, JTA, Security, Data JPA)</li>
-    <li>RabbitMQ</li>
-    <li>Hibernate</li>
-    <li>Maven</li>
-    <li>PostgreSQL</li>
-    <b>Backend test:</b>
-    <li>Junit4</li>
-    <li>Spring Test</li>
-    <b>Frontend:</b>
-    <li>Vue js</li>
-    <li>CSS</li>
+    <li><b>Backend:</b></li>
+    <ul>
+        <li>Spring Framework (Core, MVC, JTA, Security, Data JPA)</li>
+        <li>RabbitMQ</li>
+        <li>Hibernate</li>
+        <li>Maven</li>
+        <li>PostgreSQL</li>
+    </ul>
+    <li><b>Backend test:</b></li>
+    <ul>
+        <li>Junit4</li>
+        <li>Spring Test</li>
+    </ul>
+    <li>><b>Frontend:</b></li>
+    <ul>
+        <li>Vue js</li>
+        <li>CSS</li>
+    </ul>
  </ul>
- <h3> Архитектура</h3>:
+ <h3> Архитектура</h3>
   <p>Здесь представлены и кратко описаны модули приложения.</p>
   <h2>Основные модули</h2>
   <ul>
-    <b>converter-api</b>
-    <li>Производит конвертацию валют, которые были выбраны пользователем</li>
-    <li>С помощью RabbitMQ передает результат для обработки и сохранения</li>
-    <b>history-api</b>
-    <li>Предоставляет пользователю его личную историю переводов</li>
-    <li>Сохраняет историю полученную от "converter-api" </li>
-    <b>valute-api</b>
-    <li>Ежедневное обновление о курсе валют</li>
-    <li>Предоставление списка валют пользователю</li>
+    <li><b>converter-api</b></li>
+    <ul>
+        <li>Производит конвертацию валют, которые были выбраны пользователем</li>
+        <li>С помощью RabbitMQ передает результат для обработки и сохранения</li>
+        <b>history-api</b>
+        <li>Предоставляет пользователю его личную историю переводов</li>
+        <li>Сохраняет историю полученную от "converter-api" </li>
+        <b>valute-api</b>
+        <li>Ежедневное обновление о курсе валют</li>
+        <li>Предоставление списка валют пользователю</li>
+    </ul>
   </ul> 
   <h2>Вспомогательные модули</h2>
   <ul>
