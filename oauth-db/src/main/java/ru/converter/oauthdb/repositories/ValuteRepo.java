@@ -7,4 +7,6 @@ import ru.converter.oauthdb.domains.Valute;
 
 
 public interface ValuteRepo extends CrudRepository<Valute, Integer> {
+
+    Valute findByName(String name);
 }

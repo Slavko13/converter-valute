@@ -20,7 +20,7 @@ public class ConverterConsumer {
 
     @RabbitListener(queues = "#{getValutesFromValuteApi.name}")
     public void send(ValuteFromConverterDTO valuteMap) throws MessagingException {
-        converterService.convertValutes(valuteMap);
+        //converterService.convertValutes(valuteMap);
     }
 
 
