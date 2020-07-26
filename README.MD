@@ -14,7 +14,7 @@
  <ul>
     <li><b>Backend:</b></li>
     <ul>
-        <li>Spring Framework (Core, MVC, JTA, Security, Data JPA)</li>
+        <li>Spring boot (Core, MVC, JTA, Security, Data JPA)</li>
         <li>RabbitMQ</li>
         <li>Hibernate</li>
         <li>Maven</li>
