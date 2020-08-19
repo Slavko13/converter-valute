@@ -27,7 +27,7 @@ public class MainConvertController {
         valuteDTO.setValuteToID(2);
         valuteDTO.setFromValuteValue((double) 3);
         converterService.getValutesFromValuteApi(valuteDTO);
-        return new ResponseEntity<ResultDTO>(converterService.convertValutes(valuteDTO), HttpStatus.OK);
+        return new ResponseEntity<>(converterService.convertValutes(valuteDTO), HttpStatus.OK);
     }
 
 

@@ -28,10 +28,12 @@
         <module>converter-api/converter-api-server</module>
         <module>history-api/history-api-client</module>
         <module>history-api/history-api-server</module>
-        <module>oauth-db</module>
+        <module>db-tools</module>
+        <module>oauth-db-tools</module>
         <module>converter-core</module>
         <module>valute-api/valute-api-client</module>
         <module>valute-api/valute-api-server</module>
+        <module>oauth-server</module>
     </modules>
 
     <dependencies>
@@ -47,8 +49,8 @@
         <dependencies>
             <dependency>
                 <groupId>ru.converter</groupId>
-                <artifactId>oauth-db</artifactId>
-                <version>${project.version}</version>
+                <artifactId>db-tools</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
             <dependency>
@@ -81,6 +83,18 @@
             <dependency>
                 <groupId>ru.converter</groupId>
                 <artifactId>converter-api-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.converter</groupId>
+                <artifactId>security</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.converter</groupId>
+                <artifactId>oauth-db-tools</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>

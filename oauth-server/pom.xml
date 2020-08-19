@@ -5,12 +5,12 @@
 	<parent>
 		<artifactId>converter-valute</artifactId>
 		<groupId>ru.converter</groupId>
-		<version>0.0.1-SNAPSHOT</version> <!-- lookup parent from repository -->
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>valute-api-server</artifactId>
+	<artifactId>oauth-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>valute-api-server</name>
+	<name>oauth-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -18,32 +18,24 @@
 	</properties>
 
 	<dependencies>
-
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>ru.converter</groupId>
+			<artifactId>security</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>ru.converter</groupId>
 			<artifactId>base</artifactId>
 		</dependency>
 
-
-		<dependency>
-			<groupId>ru.converter</groupId>
-			<artifactId>database</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>ru.converter</groupId>
 			<artifactId>rabbit-mq</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>ru.converter</groupId>
-			<artifactId>converter-api-client</artifactId>
+			<artifactId>oauth-db-tools</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
@@ -51,6 +43,19 @@
 			<groupId>ru.converter</groupId>
 			<artifactId>db-tools</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>ru.converter</groupId>
+			<artifactId>database</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
@@ -65,9 +70,9 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>ru.converter</groupId>
-			<artifactId>valute-api-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
