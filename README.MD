@@ -14,7 +14,7 @@
  <ul>
     <li><b>Backend:</b></li>
     <ul>
-        <li>Spring Framework (Core, MVC, JTA, Security, Data JPA)</li>
+        <li>Spring boot (Core, MVC, JTA, Security, Data JPA)</li>
         <li>RabbitMQ</li>
         <li>Hibernate</li>
         <li>Maven</li>
@@ -60,6 +60,6 @@
     </ul>
     <li><b>oauth-db</b></li>
     <ul>
-    <li>содержит набор классов для работы с БД, совместно используемых в модулях oauth-server и account-service.</li>
+    <li>содержит набор классов для работы с БД, совместно используемых в модулях </li>
     </ul>
   </ul> 
