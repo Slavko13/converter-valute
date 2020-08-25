@@ -29,7 +29,6 @@
         <module>history-api/history-api-client</module>
         <module>history-api/history-api-server</module>
         <module>db-tools</module>
-        <module>oauth-db-tools</module>
         <module>converter-core</module>
         <module>valute-api/valute-api-client</module>
         <module>valute-api/valute-api-server</module>
@@ -92,11 +91,6 @@
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
-            <dependency>
-                <groupId>ru.converter</groupId>
-                <artifactId>oauth-db-tools</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
         </dependencies>
 
 

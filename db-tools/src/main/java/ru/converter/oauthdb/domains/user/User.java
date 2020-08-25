@@ -1,4 +1,4 @@
-package ru.converter.oauthdbtools.domains.UserOauth;
+package ru.converter.oauthdb.domains.user;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,8 +28,8 @@ public class User extends BaseEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    @Enumerated(value = EnumType.STRING)
-    @Column(name = "role")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_code")
     private Role role;
 
     @Enumerated(value = EnumType.STRING)

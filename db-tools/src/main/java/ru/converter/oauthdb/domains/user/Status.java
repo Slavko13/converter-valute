@@ -1,4 +1,4 @@
-package ru.converter.oauthdbtools.domains.UserOauth;
+package ru.converter.oauthdb.domains.user;
 
 public enum Status {
 

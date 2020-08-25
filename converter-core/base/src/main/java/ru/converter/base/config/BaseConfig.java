@@ -13,6 +13,7 @@ import org.springframework.context.annotation.PropertySources;
         @PropertySource("classpath:application.properties"),
         @PropertySource(value = "file:./application.properties", ignoreResourceNotFound = true),
 })
+
 public class BaseConfig {
 
 }

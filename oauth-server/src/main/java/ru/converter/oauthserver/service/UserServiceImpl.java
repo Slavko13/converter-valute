@@ -1,9 +1,13 @@
-package ru.converter.oauthdbtools.services;
+package ru.converter.oauthserver.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.converter.oauthdbtools.domains.UserOauth.User;
-import ru.converter.oauthdbtools.repositories.UserRepo;
+import org.springframework.stereotype.Service;
 
+import ru.converter.oauthdb.domains.user.User;
+import ru.converter.oauthdb.repositories.UserRepo;
+
+
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepo userRepo;
@@ -13,10 +17,9 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
-
     @Override
     public User addUser(User user) {
-        return userRepo.save(user);
+        return null;
     }
 
     @Override
