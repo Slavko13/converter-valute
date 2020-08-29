@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import ru.converter.oauthdb.domains.user.User;
 import ru.converter.oauthdb.repositories.UserRepo;
 import ru.converter.oauthserver.principal.UserPrincipal;
 
@@ -24,6 +25,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        User user = userRepo.findByLogin(login).get();
+
         return userRepo.findByLogin(login)
                 .map(UserPrincipal::new)
                 .orElseThrow(() -> new UsernameNotFoundException("{AbstractUserDetailsAuthenticationProvider.badCredentials}"));

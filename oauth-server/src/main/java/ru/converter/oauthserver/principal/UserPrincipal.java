@@ -22,8 +22,8 @@ public class UserPrincipal implements UserDetails {
     private final Set<SimpleGrantedAuthority> authorities;
     private final boolean isActive;
 
-    public UserPrincipal(@NonNull User user) {
-        this.userName = user.getId().toString();
+    public UserPrincipal(User user) {
+        this.userName = user.getLogin();
         this.password = user.getPassword();
         this.authorities = user.getRole().getAuthorities()
                 .stream().map(this::getGrantedAuthority).collect(Collectors.toSet());
@@ -68,5 +68,4 @@ public class UserPrincipal implements UserDetails {
     public boolean isEnabled() {
         return isActive;
     }
-
 }

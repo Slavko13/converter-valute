@@ -15,12 +15,9 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="/login/process">
+    <form method="post" action="/auth/login">
 
-        <#if error?? >
-        <div class="bg-danger"> Ошибка в вводе логина или пароля</div>
-    </#if>
-    <div class="form-group">
+        <div class="form-group">
         <label for="login">Логин:</label>
         <input type="text" class="form-control" id="login" placeholder="Логин" name="login">
     </div>

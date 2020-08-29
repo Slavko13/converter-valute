@@ -1,7 +1,6 @@
 package ru.converter.oauthdb.domains.user;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import ru.converter.oauthdb.domains.BaseEntity;
 
 import javax.persistence.*;
@@ -11,6 +10,9 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "users")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User extends BaseEntity {
 
     @Column(name = "login")

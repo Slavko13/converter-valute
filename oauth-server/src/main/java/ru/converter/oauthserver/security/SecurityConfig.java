@@ -36,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login", "/registration").anonymous()
                 .and()
                 .formLogin()
+                .loginProcessingUrl("/auth/login")
+                .usernameParameter("login")
                 .loginPage("/auth/login").permitAll()
                 .defaultSuccessUrl("/auth/main")
                 .and()
