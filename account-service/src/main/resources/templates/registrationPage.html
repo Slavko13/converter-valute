@@ -25,16 +25,28 @@
 <!--    </div>-->
 <!--</#if>-->
 
-<form method="post" action="/auth/registration/">
+<form method="post" action="/registration">
     <div class="form-group">
         <label for="login">Логин:</label>
         <input type="text" class="form-control" id="login" placeholder="Логин" name="login">
     </div>
 
     <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+    </div>
+
+
+    <div class="form-group">
         <label for="firstName">Ваше имя:</label>
         <input type="text" class="form-control" id="firstName" placeholder="Ваше имя" name="firstName">
     </div>
+
+    <div class="form-group">
+        <label for="secondName">Вашу фамилию:</label>
+        <input type="text" class="form-control" id="secondName" placeholder="Ваше имя" name="secondName">
+    </div>
+
     <div class="form-group">
         <label for="password">Введите ваш пароль</label>
         <input type="text" class="form-control" id="password" placeholder="Пароль" name="password">

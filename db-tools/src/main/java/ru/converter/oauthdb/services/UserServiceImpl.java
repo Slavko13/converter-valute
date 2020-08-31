@@ -1,11 +1,10 @@
-package ru.converter.oauthserver.service;
+package ru.converter.oauthdb.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import ru.converter.base.exceptions.NotFoundException;
 import ru.converter.oauthdb.domains.user.User;
 import ru.converter.oauthdb.repositories.UserRepo;
-
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,18 +16,19 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
+
     @Override
-    public User addUser(User user) {
-        return null;
+    public void saveUser(User user) {
+        userRepo.save(user);
     }
 
     @Override
-    public User updateUser(User user) {
-        return null;
+    public User findByEmail(String email) {
+        return userRepo.findByEmail(email).orElseThrow(() -> new NotFoundException("{UserServiceImpl.findByEmail.NotFound}"));
     }
 
     @Override
-    public User deleteUser(User user) {
-        return null;
+    public boolean existsByEmail(String email) {
+        return userRepo.existsByEmail(email);
     }
 }

@@ -43,13 +43,7 @@ public class AuthController {
         return "mainPage.html";
     }
 
-    @PostMapping("/registration")
-    public String registrateUser(@ModelAttribute User user) {
-        user.setStatus(Status.ACTIVE);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepo.save(user);
-        return "redirect:/auth/login";
-    }
+
 
 
 

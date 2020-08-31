@@ -24,6 +24,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>account-service</module>
         <module>converter-api/converter-api-client</module>
         <module>converter-api/converter-api-server</module>
         <module>history-api/history-api-client</module>
