@@ -1,4 +1,4 @@
-<h1> Converter Valute project (Spring Framework + RabbitMQ + Vue Js)</h1>
+<h1> Converter Valute project (Spring boot + RabbitMQ + Vue Js)</h1>
 <p> Converter Valute project - небольшой проектик, цель которого - продемонстрировать мои навыки. Функционал проекта:</p>
  <ul>
     <li> Микросервисная инфраструктура сервисов с помощью брокера сообщений RabbitMQ</li>
