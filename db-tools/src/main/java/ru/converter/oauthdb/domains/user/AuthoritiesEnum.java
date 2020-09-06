@@ -1,5 +1,5 @@
 package ru.converter.oauthdb.domains.user;
 
 public enum AuthoritiesEnum {
-    VALUTE_API, CONVERT_VALUTE, FULL_ACCESS
+    VALUTE_API, CONVERT_VALUTE, FULL_ACCESS, NOT_ACTIVE
 }

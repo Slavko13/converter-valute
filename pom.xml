@@ -19,6 +19,7 @@
 
     <properties>
         <java.version>14</java.version>
+        <project.version>0.0.1-SNAPSHOT</project.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -34,6 +35,8 @@
         <module>valute-api/valute-api-client</module>
         <module>valute-api/valute-api-server</module>
         <module>oauth-server</module>
+        <module>email-service/email-client</module>
+        <module>email-service/email-server</module>
     </modules>
 
     <dependencies>
@@ -83,6 +86,12 @@
             <dependency>
                 <groupId>ru.converter</groupId>
                 <artifactId>converter-api-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.converter</groupId>
+                <artifactId>email-client</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 

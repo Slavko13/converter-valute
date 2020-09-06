@@ -32,11 +32,6 @@ public class RegistrationController {
         return "registrationPage";
     }
 
-    @GetMapping("/registration/lol")
-    public String showForm2() {
-        return "registrationPage";
-    }
-
     @PostMapping("/registration")
     public String registrateUser(@ModelAttribute RegistrationDTO registrationDTO) {
         registrationService.registration(registrationDTO);
@@ -45,10 +40,7 @@ public class RegistrationController {
 
     @GetMapping("/confirm?confirmCode={confirmCode}&userUniqueField={login}")
     public ResponseEntity confirmEmail(@PathVariable String confirmCode, @PathVariable String login) {
-
-
         return new ResponseEntity<>(HttpStatus.OK);
-
     }
 
 }

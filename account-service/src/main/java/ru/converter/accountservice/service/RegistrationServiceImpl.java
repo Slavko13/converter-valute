@@ -2,27 +2,38 @@ package ru.converter.accountservice.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.converter.accountservice.dto.ConfirmDTO;
 import ru.converter.accountservice.dto.RegistrationDTO;
+import ru.converter.accountservice.utils.EmailUtil;
 import ru.converter.base.exceptions.BadRequestException;
 import ru.converter.base.exceptions.InternalServerException;
+import ru.converter.emailclient.dto.EmailDTO;
+import ru.converter.emailclient.service.EmailClientService;
+import ru.converter.oauthdb.domains.ConfirmCode;
 import ru.converter.oauthdb.domains.user.Role;
 import ru.converter.oauthdb.domains.user.Status;
 import ru.converter.oauthdb.domains.user.User;
+import ru.converter.oauthdb.repositories.UserRepo;
+import ru.converter.oauthdb.services.ConfirmCodeService;
 import ru.converter.oauthdb.services.UserService;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
 
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+    private final EmailClientService emailClientService;
+    private final ConfirmCodeService confirmCodeService;
 
-    public RegistrationServiceImpl(UserService userService, PasswordEncoder passwordEncoder) {
+
+    public RegistrationServiceImpl(UserService userService, PasswordEncoder passwordEncoder, UserRepo userRepo, EmailClientService emailClientService, ConfirmCodeService confirmCodeService) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+        this.emailClientService = emailClientService;
+        this.confirmCodeService = confirmCodeService;
     }
 
     @Override
@@ -35,6 +46,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
         try {
             User user = User.builder()
+                    .id(UUID.randomUUID())
                     .firstName(registrationDTO.getFirstName())
                     .lastName(registrationDTO.getSecondName())
                     .login(registrationDTO.getLogin())
@@ -45,8 +57,9 @@ public class RegistrationServiceImpl implements RegistrationService {
                     .build();
             userService.saveUser(user);
 
-            // TODO: email confirmationCode
-
+            ConfirmCode confirmCode  = confirmCodeService.prepareAndSave(user, ConfirmCode.Action.REGISTRATION);
+            EmailDTO  emailDTO = EmailUtil.createEmailToSend(confirmCode);
+            emailClientService.send(emailDTO);
         }
         catch (Exception ex) {
             throw new InternalServerException("{RegistrationServiceImpl.registration.internalServerException}", ex);

@@ -1,19 +1,26 @@
 package ru.converter.oauthdb.domains.user;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 import ru.converter.oauthdb.domains.BaseEntity;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 
-@EqualsAndHashCode(callSuper = true)
+
 @Data
 @Entity
 @Table(name = "users")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends BaseEntity {
+public class User  {
+
+    @Id
+    @GenericGenerator(name = "id", strategy = "uuid2")
+    private UUID id;
+
 
     @Column(name = "login")
     private String login;
