@@ -71,6 +71,8 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void confirm(String confirmCode, String login) {
-
+        User user =  userService.findByLogin(login);
+        user.setStatus(Status.ACTIVE);
+        userService.saveUser(user);
     }
 }

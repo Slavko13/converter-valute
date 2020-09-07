@@ -38,8 +38,9 @@ public class RegistrationController {
         return "redirect:/registration/lol";
     }
 
-    @GetMapping("/confirm?confirmCode={confirmCode}&userUniqueField={login}")
+    @GetMapping("registration/confirm/{confirmCode}/{login}")
     public ResponseEntity confirmEmail(@PathVariable String confirmCode, @PathVariable String login) {
+        registrationService.confirm(confirmCode, login);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

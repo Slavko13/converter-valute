@@ -15,10 +15,12 @@ import java.util.Properties;
 @Import({RabbitMqConfig.class, BaseConfig.class})
 public class AppConfig {
 
-    private static final String HOST = "mail.host";
-    private static final String PORT = "mail.port";
-    private static final String USERNAME = "mail.username";
-    private static final String PASSWORD = "mail.password";
+    private static final String HOST = "spring.mail.host";
+    private static final String PORT = "spring.mail.port";
+    private static final String USERNAME = "spring.mail.username";
+    private static final String PASSWORD = "spring.mail.password";
+    private static final String PROTOCOL = "spring.mail.protocol";
+    private static final String DEBUG = "mail.debug";
 
 
     @Bean(name = "getJavaMailSender")
@@ -29,7 +31,16 @@ public class AppConfig {
         mailSender.setPort(environment.getRequiredProperty(PORT, Integer.TYPE));
         mailSender.setUsername(environment.getRequiredProperty(USERNAME));
         mailSender.setPassword(environment.getRequiredProperty(PASSWORD));
+        //mailSender.setProtocol(environment.getProperty(PROTOCOL));
 
+        Properties properties = mailSender.getJavaMailProperties();
+
+        //properties.setProperty("mail.transport.protocol", environment.getRequiredProperty(PROTOCOL));
+        properties.setProperty("mail.debug", environment.getRequiredProperty(DEBUG));
+        properties.setProperty("mail.smtp.ssl.trust", "smtp.mail.ru");
+        properties.setProperty("mail.smtp.ssl.enable", "true");
+        properties.setProperty("mail.smtp.auth", "true");
+        properties.setProperty("mail.smtp.starttls.enable", "true");
         return mailSender;
     }
 

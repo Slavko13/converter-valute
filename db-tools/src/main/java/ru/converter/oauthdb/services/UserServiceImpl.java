@@ -7,6 +7,8 @@ import ru.converter.base.exceptions.NotFoundException;
 import ru.converter.oauthdb.domains.user.User;
 import ru.converter.oauthdb.repositories.UserRepo;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -17,6 +19,10 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
+    @Override
+    public User findByLogin(String login) {
+        return userRepo.findByLogin(login).orElseThrow(() -> new NotFoundException("{UserServiceImpl.findByLogin.NotFound}"));
+    }
 
     @Override
     @Transactional

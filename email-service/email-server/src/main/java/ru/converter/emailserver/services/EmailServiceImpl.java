@@ -12,7 +12,7 @@ import ru.converter.emailclient.dto.EmailDTO;
 @Service
 public class EmailServiceImpl implements EmailService {
 
-    @Value("${mail.from}")
+    @Value("${spring.mail.username}")
     private String username;
 
     private final JavaMailSender javaMailSender;
@@ -28,7 +28,7 @@ public class EmailServiceImpl implements EmailService {
     public void send(EmailDTO emailDTO) {
 
         String content = String.format(
-          "Hello, %s! Welcome to myApp. Please, visit next link to activate your account http://localhost:8084/confirm?confirmCode=%s&userUniqueField=%s",
+          "Hello, %s! Welcome to myApp. Please, visit next link to activate your account http://localhost:8084/registration/confirm/%s/%s",
                 emailDTO.getContent().get("userLogin").toString(),
                 emailDTO.getContent().get("confirmCode").toString(),
                 emailDTO.getContent().get("userLogin").toString());
