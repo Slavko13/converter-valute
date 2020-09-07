@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<a th:href="@{http://localhost:8084/registration/confirm/{confirmCode}/{userLogin}(confirmCode=${confirmCode}, userLogin=${userLogin})}">Подтвердите регистрацию</a>
+
+</body>
+</html>

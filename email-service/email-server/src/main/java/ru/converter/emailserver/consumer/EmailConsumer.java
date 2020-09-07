@@ -18,7 +18,7 @@ public class EmailConsumer {
     }
 
     @RabbitListener(queues = "#{getEmailFromRegistrationService.name}")
-    public void send(EmailDTO emailDTO) throws MessagingException {
+    public void send(EmailDTO emailDTO) throws MessagingException, javax.mail.MessagingException {
         emailService.send(emailDTO);
     }
 

@@ -8,23 +8,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.converter.accountservice.dto.RegistrationDTO;
 import ru.converter.accountservice.service.RegistrationService;
-import ru.converter.oauthdb.domains.user.AuthoritiesEnum;
-import ru.converter.oauthdb.domains.user.Role;
 import ru.converter.oauthdb.repositories.RoleRepo;
 
-import java.util.Set;
 
 @Controller
 public class RegistrationController {
 
     private final RegistrationService registrationService;
-    private final RoleRepo roleRepo;
+
 
 
     @Autowired
-    public RegistrationController(RegistrationService registrationService, RoleRepo roleRepo) {
+    public RegistrationController(RegistrationService registrationService) {
         this.registrationService = registrationService;
-        this.roleRepo = roleRepo;
     }
 
     @GetMapping("/registration")

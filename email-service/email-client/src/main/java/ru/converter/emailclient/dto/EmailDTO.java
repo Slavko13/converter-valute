@@ -16,5 +16,6 @@ public class EmailDTO implements Serializable {
 
     private String messageTo;
     private Map<String, Object> content;
+    private String template;
     private String subject;
 }
