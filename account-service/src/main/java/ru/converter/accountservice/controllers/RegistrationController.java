@@ -10,6 +10,8 @@ import ru.converter.accountservice.dto.RegistrationDTO;
 import ru.converter.accountservice.service.RegistrationService;
 import ru.converter.oauthdb.repositories.RoleRepo;
 
+import java.util.UUID;
+
 
 @Controller
 public class RegistrationController {
@@ -35,7 +37,7 @@ public class RegistrationController {
     }
 
     @GetMapping("registration/confirm/{confirmCode}/{login}")
-    public ResponseEntity confirmEmail(@PathVariable String confirmCode, @PathVariable String login) {
+    public ResponseEntity confirmEmail(@PathVariable UUID confirmCode, @PathVariable String login) {
         registrationService.confirm(confirmCode, login);
         return new ResponseEntity<>(HttpStatus.OK);
     }

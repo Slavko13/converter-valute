@@ -1,5 +1,6 @@
 package ru.converter.accountservice.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.converter.accountservice.dto.RegistrationDTO;
@@ -21,6 +22,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class RegistrationServiceImpl implements RegistrationService {
 
     private final UserService userService;
@@ -67,12 +69,22 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     }
 
-
-
     @Override
-    public void confirm(String confirmCode, String login) {
-        User user =  userService.findByLogin(login);
-        user.setStatus(Status.ACTIVE);
-        userService.saveUser(user);
+    public void confirm(UUID confirmCode, String login) {
+
+        try {
+            User user =  userService.findByLogin(login);
+            user.setStatus(Status.ACTIVE);
+            userService.saveUser(user);
+        }
+        catch (Exception ex) {
+            throw new InternalServerException("{RegistrationServiceImpl.confirm.failedConfirm}", ex);
+        }
+        try {
+            confirmCodeService.deleteByCode(confirmCode);
+        }
+        catch (Exception ex) {
+            log.error("Failed remove confirmCode: ", ex);
+        }
     }
 }

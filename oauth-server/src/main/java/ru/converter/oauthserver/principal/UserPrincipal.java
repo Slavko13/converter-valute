@@ -27,8 +27,9 @@ public class UserPrincipal implements UserDetails {
         this.password = user.getPassword();
         this.authorities = user.getRole().getAuthorities()
                 .stream().map(this::getGrantedAuthority).collect(Collectors.toSet());
-        this.isActive = isActive();
+        this.isActive = user.getStatus().equals(Status.ACTIVE);
     }
+
     private SimpleGrantedAuthority getGrantedAuthority(AuthoritiesEnum authority) {
         return new SimpleGrantedAuthority(authority.name());
     }
