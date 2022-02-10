@@ -17,7 +17,7 @@
 
     <properties>
         <java.version>14</java.version>
-        <hibernate.version>5.4.10.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
     </properties>
 
     <dependencies>
